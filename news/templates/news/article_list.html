@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+  <style>
+    .dateposted {
+      color: grey;
+    }
+  </style>
+  <h1>News in Technology</h1>
+  <p><a href="https://medium.com">Via Medium.com</a></p>
+  <ul class = "list-group">
+    {% for article in article_list %}
+        <li class = "list-group-item">
+          <a href="{{article.url}}"><img src="{{article.thumbnail}}" height="60" width="100"></a>
+          <h4><a href="{{article.url}}">{{article.title}}</a></h4>
+          <p class = summary>{{article.summary}}</p>
+          <p class = dateposted>Retrieved: {{article.timestamp}}</p>
+        </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
